@@ -273,7 +273,7 @@
             fetch(item.file)
                 .then(response => response.text())
                 .then(text => {
-                    const formattedText = item.slide == ''
+                    const formattedText = item.slide
                         ? `<div class="iframe-container">
                             <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                             <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
