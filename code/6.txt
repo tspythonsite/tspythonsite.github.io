@@ -70,78 +70,39 @@ def convertScores(scorebook):
 gradebook = convertScores(scorebook)
 print(gradebook)
 
-#6. Write a function that will work with the following line of code on line 21 to add the entry for Russia to the travel_log
-  #travel_log = [ {
-  #"country": "France",
-  #"visits": 12,
-  #"cities": ["Paris", "Lille", "Dijon"] } ]
-  #add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
-travelLog = [ {
-  "country": "France",
-  "visits": 12,
-  "cities": ["Paris", "Lille", "Dijon"] } ]
+#6. Create a function that will add a new country entry to the travel log.
+travel_log = {
+  "France": {
+      "visits": 12,
+      "cities": ["Paris", "Lille", "Dijon"]
+  },
+  "Italy": {
+      "visits": 5,
+      "cities": ["Rome", "Venice", "Florence"]
+  }
+}
 def addCountry(country, visits, cities):
-  countryDict = {}
-  countryDict["country"] = country
-  countryDict["visits"] = visits
-  countryDict["cities"] = cities
-  travelLog.append(countryDict)
-
+  travel_log[country] = {"visits": visits, "cities": cities}
+  
 addCountry("Russia", 2, ["Moscow", "Saint Petersburg"])
-print(travelLog)
-
-#6 with inputs
-travel_log = [ {
-  "country": "France",
-  "visits": 12,
-  "cities": ["Paris", "Lille", "Dijon"] } ]
-
-def add_new_country(country, visits, cities):
-  countryDict = {}
-  countryDict["country"] = country
-  countryDict["visits"] = visits
-  countryDict["cities"] = cities
-  travel_log.append(countryDict)
-
-country = input("Input country: ")
-visits = int(input("Input visits: "))
-cities = input("Input cities: ").split(",")
-
-add_new_country(country, visits, cities)
 print(travel_log)
 
 #7. Write a function that displays each country in the log of the previous program in the following format:
-  #You've visited Russia 2 times.
-  #You've been to Moscow and Saint Petersburg.
-def displayLog():
-  for entry in travelLog:
-    country = entry["country"]
-    visits = entry["visits"]
-    cities = entry["cities"]
-    print(f"You've visited {country} {visits} times.")
-    print(f"You've been to {' and '.join(cities)}.")
-displayLog()
-
-#8. Write a function that quizzes the user, tracking their score and printing it at the end.
-questions = [
-{"question":"What is 1+1?", "answer":"2"}, {"question":"What color is the sky?", "answer":"blue"}, {"question":"What does 'www' stand for in a website browser?", "answer":"world wide web"}
-]
-
-def quiz(questions):
-  score = 0
-  for QAndA in questions:
-    guess = input(QAndA["question"])
-    if guess.lower() == QAndA["answer"]:
-      score += 1
-      print("That is correct!")
+	#You've visited France 12 times.
+  #You've been to Paris, Lille, and Dijon.
+def display_log():
+  for country in travel_log:
+    visits = travel_log[country]["visits"]
+    cities = travel_log[country]["cities"]
+    if len(cities) > 1:
+        cities_str = ', '.join(cities[:-1]) + ', and ' + cities[-1]
     else:
-      print("That is incorrect.")
-  total = len(questions)
-  print(f"You got {score}/{total} correct!")
+        cities_str = cities[0]
+    print(f"You've visited {country} {visits} times.")
+    print(f"You've been to {cities_str}.")
+display_log()
 
-quiz(questions)
-
-#9. Write a program that will collect the names and bids of different people. The program should ask for each bidder's name and their bid individually. If there are other bidders, the screen should clear, so you can pass your phone to the next person. If there are no more bidders, then the program should display the name of the winner and their winning bid.
+#8. Write a program that will collect the names and bids of different people. The program should ask for each bidder's name and their bid individually. If there are other bidders, the screen should clear, so you can pass the device to the next person. If there are no more bidders, then the program should display the name of the winner and their winning bid.
 from replit import clear
 
 bids = {}
@@ -153,7 +114,7 @@ def getWinner(bids):
     if bids[bidder] > bids[highestBidder]:
       highestBidder = bidder
   return highestBidder
-
+  
 while stillBidding:
   name = input("What is your name? ")
   bid = int(input("How much will you bid? "))
