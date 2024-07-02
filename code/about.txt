@@ -1,1 +1,1 @@
-Welcome! I can guarantee you that it was a smart decision to start learning Python, the most pertinent programming language out there by far. Here you'll find a comprehensive set of slides, walkthroughs, and exercises to help kickstart your coding journey.
+Welcome! You've made a smart choice to start learning Python, the most relevant programming language available today. Here, you'll find a comprehensive set of slides, tutorials, and exercises designed to kickstart your coding journey.
