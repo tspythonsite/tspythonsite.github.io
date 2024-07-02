@@ -205,11 +205,6 @@
             height: auto;
             border-radius: 10px;
         }
-        @media screen and (max-width: 600px) {
-            .iframe-container iframe, .image-container, .code-container {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -217,8 +212,8 @@
         <div class="about-option" id="aboutTab">TSPython</div>
     </div>
     <div class="selection-box">
-        <div class="selection-option" id="firstTab">Core</div>
-        <div class="selection-option" id="secondTab">Extra</div>
+        <div class="selection-option" id="firstTab">Essential</div>
+        <div class="selection-option" id="secondTab">Etcetera</div>
     </div>
     <div class="container" id="contentContainer"></div>
     <div id="myModal" class="modal">
@@ -261,7 +256,7 @@
             contentType.forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'content-item';
-                div.innerHTML = `<p class="title">${item.title}</p><p class="key-line">${item.keyLine}</p>`;
+                div.innerHTML = <p class="title">${item.title}</p><p class="key-line">${item.keyLine}</p>;
                 if (item.file === "") {
                     div.classList.add('disabled');
                     div.style.opacity = '0.5';
@@ -279,19 +274,19 @@
                 .then(response => response.text())
                 .then(text => {
                     const formattedText = item.slide
-                        ? `<div class="iframe-container">
+                        ? <div class="iframe-container">
                             <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                             <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                            </div>
-                           <div class="content-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
-                                <div class="image-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
+                           <div class="content-container">
+                                <div class="image-container">
                                     <img class="img-frame" src="${item.image}" alt="${item.title} Image">
                                 </div>
-                                <div class="code-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
+                                <div class="code-container">
                                     <code>${text}</code>
                                 </div>
-                            </div>`
-                        : `<div class="code-container"><code>${text}</code></div>`;
+                            </div>
+                        : <div class="code-container"><code>${text}</code></div>;
                     document.getElementById('modalTitle').innerText = item.title;
                     document.getElementById('modalContent').innerHTML = formattedText;
                     const modal = document.getElementById('myModal');
@@ -344,3 +339,6 @@
     </script>
 </body>
 </html>
+
+for the core tab, the modals have a half and half content organization. however, for the "about" and "extra" section, i dont want htis. they shoudl take up the whole width instead of just half. 
+Also, i only want half and half for the "core" tab if on pc. on mobile they shoudl take up the full width
