@@ -286,7 +286,7 @@
                                     <code>${text}</code>
                                 </div>
                             </div>`
-                        : `<div class="code-container"><code>${text}</code></div>`;
+                        : `<div class="code-container" style="width: 100%;"><code>${text}</code></div>`;
                     document.getElementById('modalTitle').innerText = item.title;
                     document.getElementById('modalContent').innerHTML = formattedText;
                     const modal = document.getElementById('myModal');
