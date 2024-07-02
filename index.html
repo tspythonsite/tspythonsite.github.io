@@ -205,6 +205,11 @@
             height: auto;
             border-radius: 10px;
         }
+        @media screen and (max-width: 600px) {
+            .iframe-container iframe, .image-container, .code-container {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,11 +283,11 @@
                             <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                             <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                            </div>
-                           <div class="content-container">
-                                <div class="image-container">
+                           <div class="content-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
+                                <div class="image-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
                                     <img class="img-frame" src="${item.image}" alt="${item.title} Image">
                                 </div>
-                                <div class="code-container">
+                                <div class="code-container ${item.title === 'About' || extraContent.some(extra => extra.title === item.title) ? 'full-width' : ''}">
                                     <code>${text}</code>
                                 </div>
                             </div>`
