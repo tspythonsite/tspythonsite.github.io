@@ -198,7 +198,7 @@
         }
         .image-container, .code-container {
             width: 48%;
-            margin-top: 20px;
+            margin-top: 5px;
         }
         .image-container img {
             max-width: 100%;
@@ -256,7 +256,7 @@
             contentType.forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'content-item';
-                div.innerHTML = <p class="title">${item.title}</p><p class="key-line">${item.keyLine}</p>;
+                div.innerHTML = `<p class="title">${item.title}</p><p class="key-line">${item.keyLine}</p>`;
                 if (item.file === "") {
                     div.classList.add('disabled');
                     div.style.opacity = '0.5';
@@ -274,7 +274,7 @@
                 .then(response => response.text())
                 .then(text => {
                     const formattedText = item.slide
-                        ? <div class="iframe-container">
+                        ? `<div class="iframe-container">
                             <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                             <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                            </div>
@@ -285,8 +285,8 @@
                                 <div class="code-container">
                                     <code>${text}</code>
                                 </div>
-                            </div>
-                        : <div class="code-container"><code>${text}</code></div>;
+                            </div>`
+                        : `<div class="code-container"><code>${text}</code></div>`;
                     document.getElementById('modalTitle').innerText = item.title;
                     document.getElementById('modalContent').innerHTML = formattedText;
                     const modal = document.getElementById('myModal');
@@ -330,7 +330,7 @@
         });
 
         aboutTab.addEventListener('click', () => {
-            openItem({ title: 'About', file: 'code/about.txt'});
+            openItem({ title: 'About', file: 'code/about.txt', slide: '', video: '', image: '' });
             aboutTab.classList.add('active');
         });
 
