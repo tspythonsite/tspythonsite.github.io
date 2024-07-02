@@ -150,9 +150,6 @@
             color: #fff;
             text-decoration: none;
         }
-        .full-width {
-            width: 100%;
-        }
         @media screen and (max-width: 600px) {
             .container, .modal-content, .selection-box, .about-box {
                 width: 95%;
@@ -273,33 +270,33 @@
         }
 
         function openItem(item) {
-    fetch(item.file)
-        .then(response => response.text())
-        .then(text => {
-            const formattedText = item.slide
-                ? `<div class="iframe-container">
-                        <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                        <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   </div>
-                   <div class="content-container">
-                        <div class="image-container">
-                            <img class="img-frame" src="${item.image}" alt="${item.title} Image">
-                        </div>
-                        <div class="code-container">
-                            <code>${text}</code>
-                        </div>
-                   </div>`
-                : `<div class="code-container full-width"><code>${text}</code></div>`;
-            document.getElementById('modalTitle').innerText = item.title;
-            document.getElementById('modalContent').innerHTML = formattedText;
-            const modal = document.getElementById('myModal');
-            modal.style.display = "block";
-            modal.scrollTop = 0;
-            requestAnimationFrame(() => {
-                modal.classList.add('show');
-            });
-        });
-}
+            fetch(item.file)
+                .then(response => response.text())
+                .then(text => {
+                    const formattedText = item.slide
+                        ? `<div class="iframe-container">
+                            <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                            <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           </div>
+                           <div class="content-container">
+                                <div class="image-container">
+                                    <img class="img-frame" src="${item.image}" alt="${item.title} Image">
+                                </div>
+                                <div class="code-container">
+                                    <code>${text}</code>
+                                </div>
+                            </div>`
+                        : `<div class="code-container"><code>${text}</code></div>`;
+                    document.getElementById('modalTitle').innerText = item.title;
+                    document.getElementById('modalContent').innerHTML = formattedText;
+                    const modal = document.getElementById('myModal');
+                    modal.style.display = "block";
+                    modal.scrollTop = 0;
+                    requestAnimationFrame(() => {
+                        modal.classList.add('show');
+                    });
+                });
+        }
 
         function closeModal() {
             const modal = document.getElementById('myModal');
