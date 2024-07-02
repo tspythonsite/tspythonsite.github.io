@@ -173,13 +173,13 @@
             margin-bottom: -5px;
         }
         .iframe-container iframe {
-            width: 50%;
+            width: 49%;
             height: 300px;
             border: none;
             border-radius: 10px;
         }
         .image-container, .code-container {
-            width: 50%;
+            width: 49%;
             margin-top: 0px;
             margin-bottom: 10px;
         }
@@ -280,14 +280,14 @@
                     const isMobile = window.innerWidth <= 600;
                     const formattedText = item.slide
                         ? `<div class="iframe-container" style="${isMobile ? 'flex-direction: column;' : ''}">
-                                <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}"></iframe>
-                                <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 100%;' : 'width: 50%;'}"></iframe>
+                                <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%;' : 'width: 49%;'}"></iframe>
+                                <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 49%;' : 'width: 49%;'}"></iframe>
                            </div>
                            <div class="content-container" style="${isMobile ? 'flex-direction: column;' : ''}">
-                                <div class="image-container" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}">
+                                <div class="image-container" style="${isMobile ? 'width: 100%;' : 'width: 49%;'}">
                                     <img class="img-frame" src="${item.image}" alt="${item.title} Image" style="${isMobile ? 'width: 100%;' : ''}">
                                 </div>
-                                <div class="code-container" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}">
+                                <div class="code-container" style="${isMobile ? 'width: 100%;' : 'width: 49%;'}">
                                     <code>${text}</code>
                                 </div>
                             </div>`
