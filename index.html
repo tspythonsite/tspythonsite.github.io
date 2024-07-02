@@ -150,27 +150,6 @@
             color: #fff;
             text-decoration: none;
         }
-        @media screen and (max-width: 600px) {
-            .container, .modal-content, .selection-box, .about-box {
-                width: 95%;
-            }
-            .title {
-                font-size: 1.5em;
-            }
-            .modal-content {
-                margin: 10% auto;
-                width: 90%;
-            }
-            .close {
-                font-size: 24px;
-            }
-            .selection-option, .about-option {
-                font-size: 1.5em; 
-            }
-            .iframe-container {
-                margin-bottom: 10px;
-            }
-        }
         ::-webkit-scrollbar {
             display: none;
         }
@@ -208,6 +187,27 @@
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+        }
+        @media screen and (max-width: 600px) {
+            .container, .modal-content, .selection-box, .about-box {
+                width: 95%;
+            }
+            .title {
+                font-size: 1.5em;
+            }
+            .modal-content {
+                margin: 10% auto;
+                width: 90%;
+            }
+            .close {
+                font-size: 24px;
+            }
+            .selection-option, .about-option {
+                font-size: 1.5em; 
+            }
+            .iframe-container {
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
@@ -280,14 +280,14 @@
                     const isMobile = window.innerWidth <= 600;
                     const formattedText = item.slide
                         ? `<div class="iframe-container" style="${isMobile ? 'flex-direction: column;' : ''}">
-                                <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}"></iframe>
-                                <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 100%;' : 'width: 48%;'}"></iframe>
+                                <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}"></iframe>
+                                <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 100%;' : 'width: 50%;'}"></iframe>
                            </div>
                            <div class="content-container" style="${isMobile ? 'flex-direction: column;' : ''}">
-                                <div class="image-container" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}">
+                                <div class="image-container" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}">
                                     <img class="img-frame" src="${item.image}" alt="${item.title} Image" style="${isMobile ? 'width: 100%;' : ''}">
                                 </div>
-                                <div class="code-container" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}">
+                                <div class="code-container" style="${isMobile ? 'width: 100%;' : 'width: 50%;'}">
                                     <code>${text}</code>
                                 </div>
                             </div>`
