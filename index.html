@@ -274,16 +274,17 @@
             fetch(item.file)
                 .then(response => response.text())
                 .then(text => {
+                    const isMobile = window.innerWidth <= 600;
                     const formattedText = item.slide
-                        ? `<div class="iframe-container">
-                            <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                            <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        ? `<div class="iframe-container" style="${isMobile ? 'flex-direction: column;' : ''}">
+                                <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}"></iframe>
+                                <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 100%;' : 'width: 48%;'}"></iframe>
                            </div>
-                           <div class="content-container">
-                                <div class="image-container">
-                                    <img class="img-frame" src="${item.image}" alt="${item.title} Image">
+                           <div class="content-container" style="${isMobile ? 'flex-direction: column;' : ''}">
+                                <div class="image-container" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}">
+                                    <img class="img-frame" src="${item.image}" alt="${item.title} Image" style="${isMobile ? 'width: 100%;' : ''}">
                                 </div>
-                                <div class="code-container">
+                                <div class="code-container" style="${isMobile ? 'width: 100%;' : 'width: 48%;'}">
                                     <code>${text}</code>
                                 </div>
                             </div>`
