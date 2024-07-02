@@ -1,0 +1,14 @@
+# 1. Write a program that asks for the user's name and age and prints a string in the form: 
+# My name is __ and I am __ years old.
+
+name = input("What is your name? ")
+age = input("How old are you? ")
+print(f"My name is {name} and I am {age} years old.")
+
+# 2. Write a program that finds the sum of two integers as inputted by the user and prints a string in the form:
+# __ + __ = __
+
+num1 = int(input("Input first number: "))
+num2 = int(input("Input second number: "))
+sum = num1 + num2
+print(f"{num1} + {num2} = {sum}") 

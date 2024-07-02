@@ -1,0 +1,88 @@
+#LISTS
+
+# Example 1: Appending the items in a range sequence to a list
+sequence = range(1, 11)
+numbers = []
+for num in sequence:
+    numbers.append(num)
+
+# Corresponding list comprehension
+numbers = [num for num in sequence]
+
+# Example 2: Squaring numbers using for loops and appending to a list
+numbers = [1, 2, 3, 4, 5]
+squares = []
+
+for num in numbers:
+  squares.append(num ** 2)
+
+# Corresponding list comprehension
+squares = [num ** 2 for num in numbers]
+
+# Example 3: Filtering even numbers using for loops and appending to a list
+numbers = [1, 2, 3, 4, 5]
+evens = []
+
+for num in numbers:
+  if num % 2 == 0:
+    evens.append(num)
+
+# Corresponding list comprehension
+evens = [num for num in numbers if num % 2 == 0]
+
+# Example 4: Nested loops using for loops and appending to a list
+letters = ['a', 'b', 'c']
+numbers = [1, 2, 3]
+pairs = []
+
+for letter in letters:
+  for number in numbers:
+    pairs.append([letter, number])
+
+# Corresponding list comprehension
+pairs = [[letter, number] for letter in letters for number in numbers]
+
+#DICTIONARIES
+
+# Example 1: Creating a dictionary of the keys' squares
+keys = [1, 2, 3, 4, 5]
+dictionary = {}
+
+for key in keys:
+  dictionary[key] = key ** 2
+
+# Corresponding dictionary comprehension
+dictionary = {key: key ** 2 for key in keys}
+
+# Example 2: Creating a dictionary using for loops and assigning key-value pairs
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+dictionary = {}
+
+for i in range(len(keys)):
+    dictionary[keys[i]] = values[i]
+
+# Corresponding dictionary comprehension
+dictionary = {keys[i]: values[i] for i in range(len(keys))}
+
+# Example 3: Filtering dictionary items using for loops and adding them to a new dictionary
+dictionary = {'a': 1, 'b': 2, 'c': 3}
+new_dict = {}
+
+for key, value in dictionary.items():
+    if value % 2 == 0:
+        new_dict[key] = value
+
+# Corresponding dictionary comprehension
+new_dict = {key: value for key, value in dictionary.items() if value % 2 == 0}
+
+# Example 4: Dictionary comprehension with conditions on both keys and values
+dictionary = {'a': 1, 'b': 2, 'c': 3}
+new_dict = {}
+
+for key, value in dictionary.items():
+    if key != 'a' and value % 2 != 0:
+        new_dict[key] = value * 2
+
+# Corresponding dictionary comprehension
+new_dict = {key: value * 2 for key, value in dictionary.items() if key != 'a' and value % 2 != 0}

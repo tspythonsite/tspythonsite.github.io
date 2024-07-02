@@ -1,0 +1,54 @@
+#1. Write a generator function that yields the first n even numbers.
+def even_numbers(n):
+    i = 0
+    while i < n:
+        yield i * 2
+        i += 1
+
+for number in even_numbers(5):
+  print(number)
+
+#2. Write a generator function that yields the running total of a given list.
+def running_total(lst):
+    total = 0
+    for num in lst:
+        total += num
+        yield total
+      
+nums = [1, 2, 3, 4, 5]
+
+for total in running_total(nums):
+    print(total)
+
+#3. Write a generator function that yields the unique values of a given list.
+def unique_values(seq):
+  seen = []
+  for value in seq:
+    if value not in seen:
+      seen.append(value)
+      yield value
+
+nums = [1, 2, 3, 1, 2, 4, 5, 3]
+for value in unique_values(nums):
+  print(value)
+
+#4. Write a generator function that yields the Fibonacci sequence up to a given number n.
+def fibonacci(n):
+    a, b = 0, 1
+    while a <= n:
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(100):
+  print(num)
+  
+#5. Write a generator function that yields an infinite sequence of random numbers between 0 and 1.
+import random
+
+def random_numbers():
+    while True:
+        yield random.random()
+        
+generator = random_numbers()
+for i in range(10):
+    print(next(generator))
