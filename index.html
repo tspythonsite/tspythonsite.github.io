@@ -275,7 +275,7 @@
                 .then(text => {
                     const isMobile = window.innerWidth <= 600;
                     const formattedText = item.slide
-                        ? `<div class="iframe-container" style="${isMobile ? 'flex-direction: column; margin-bottom: -20px' : 'margin-bottom:-20px'}">
+                        ? `<div class="iframe-container" style="${isMobile ? 'flex-direction: column; margin-bottom: -30px' : 'margin-bottom:-30px'}">
                                 <iframe src="${item.slide}" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="${isMobile ? 'width: 100%; margin-bottom: 10px;' : 'width: 49%;'}"></iframe>
                                 <iframe src="${item.video}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="${isMobile ? 'width: 100%;' : 'width: 49%;'}"></iframe>
                            </div>
